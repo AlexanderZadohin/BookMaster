@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5605e6e0f6bf47caa9ec93bd81772bbb" Name="Diagram1" ZoomLevel="88">
+        <EntityTypeShape EntityType="Model.Author" Width="1.5" PointX="6.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Book" Width="1.5" PointX="1.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.BookAuthor" Width="1.5" PointX="3.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.BookCover" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.BookSubject" Width="1.5" PointX="8.5" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Cover" Width="1.5" PointX="0.5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Subject" Width="1.5" PointX="7.875" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.sysdiagrams" Width="1.5" PointX="16" PointY="6.125" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_BookAuthor_Author" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_BookAuthor_Book" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_BookCover_Book" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_BookSubject_Book" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_BookCover_Cover" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_BookSubject_Subject" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
