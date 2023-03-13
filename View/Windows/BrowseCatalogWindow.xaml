@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BookMaster.View.Windows"
         mc:Ignorable="d"
         Title="Bookmaster3000™" Height="900" Width="1600" MaxHeight="1080" MaxWidth="1920" WindowStartupLocation="CenterScreen" WindowState="Maximized">
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -14,12 +14,13 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width=".4*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="455*"/>
+            <ColumnDefinition Width="264*"/>
+            <ColumnDefinition Width="873*"/>
         </Grid.ColumnDefinitions>
-        <Grid Grid.ColumnSpan="2">
+        <Grid Grid.ColumnSpan="3">
             <Menu>
-                <MenuItem Header="File"> 
+                <MenuItem Header="File">
                     <MenuItem Header="Login" 
                               Name="LoginMi"
                               Click="LoginMi_Click"/>
@@ -44,7 +45,8 @@
                 </MenuItem>
             </Menu>
         </Grid>
-        <Grid Grid.Row="1" Grid.RowSpan="2" VerticalAlignment="Top" Margin="15">
+        <Grid Grid.Row="1" 
+              Grid.RowSpan="2" VerticalAlignment="Top" Margin="15,15,15,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="120"/>
                 <ColumnDefinition Width="*"/>
@@ -62,19 +64,24 @@
             <Grid Grid.ColumnSpan="2">
                 <Image Source="/Resources/Icons/logo.png"/>
             </Grid>
-            
+
             <Grid Grid.Row="1">
-                <Label Content="Title" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <Label Content="Title"
+                       VerticalAlignment="Center" HorizontalAlignment="Left"/>
             </Grid>
             <Grid Grid.Row="3">
-                <Label Content="Author" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <Label Content="Author"
+                       VerticalAlignment="Center" HorizontalAlignment="Left"/>
             </Grid>
             <Grid Grid.Row="5">
-                <Label Content="Subject" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <Label Content="Subject"
+                       VerticalAlignment="Center" HorizontalAlignment="Left"/>
             </Grid>
 
             <Grid Grid.Row="1" Grid.Column="1">
-                <TextBox x:Name="TitleSearchTb"/>
+                <TextBox x:Name="TitleSearchTb"
+                         Height="50" VerticalAlignment="Bottom"
+                         TextChanged="TitleSearchTb_TextChanged"/>
             </Grid>
             <Grid Grid.Row="3" Grid.Column="3">
                 <TextBox x:Name="AuthorSearchTb"/>
@@ -88,19 +95,147 @@
         </Grid>
         <Frame Grid.Row="1" 
                Grid.Column="1"
-               Name="ResultPage"/>
+               Name="ResultPage" Grid.ColumnSpan="2"/>
         <Frame Grid.Row="2"
-               Grid.Column="2"
-               Name="DescriptionPAge"/>
-        <Grid Grid.Row="1" Grid.Column="2">
-            <Frame Name="SearchResultsFrm" Navigated="SearchResultsFrm_Navigated">
-                
-            </Frame>
+               Grid.Column="1"
+               Name="DescriptionPAge" Grid.ColumnSpan="2"/>
+        <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="55" />
+                </Grid.RowDefinitions>
+                <Grid>
+                    <ListView Name="SearchResultslv"
+                              SelectionChanged="SearchResultslv_SelectionChanged">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Tittle" DisplayMemberBinding="{Binding Book.Title}"/>
+                                <GridViewColumn Header="Authors" DisplayMemberBinding="{Binding Author.Name}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80" />
+                        <ColumnDefinition Width="55" />
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="55" />
+                        <ColumnDefinition Width="80" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="220" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Page"/>
+                    <Button Grid.Column="1" Content="&lt;"/>
+                    <TextBlock Grid.Column="2"/>
+                    <Button Grid.Column="3" Content="&gt;"/>
+                    <TextBlock Grid.Column="4"/>
+                    <TextBlock Grid.Column="6"
+                       Text="{Binding ElementName=SearchResultslv, 
+                        Path=Items.Count, StringFormat={}{0} books found}"/>
+                </Grid>
+            </Grid>
         </Grid>
-        <Grid Grid.Row="2" Grid.Column="2">
-            <Frame Name="BookDetailsFrm">
+        <Grid x:Name="BookDetailsGrid" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="300" />
+                </Grid.ColumnDefinitions>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="10" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="10" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="1*" />
+                    </Grid.RowDefinitions>
 
-            </Frame>
+                    <TextBlock Text="{Binding Book.Title}" FontWeight="SemiBold"/>
+
+                    <TextBlock Grid.Row="1" FontSize="23" Text="{Binding Book.Subtitle}"/>
+
+                    <TextBlock Grid.Row="3">
+                        <Hyperlink>
+                            <TextBlock FontSize="20" Text="{Binding Author.Name, StringFormat={}by {0}}"/>
+                        </Hyperlink>
+                    </TextBlock>
+                    <TextBlock Grid.Row="4" FontSize="20" Text="{Binding Book.FirstPublicdate}"/>
+                    <TextBlock Grid.Row="6" FontSize="20" Text="Description" FontWeight="SemiBold"/>
+                    <TextBlock Grid.Row="7" FontSize="20" Text="{Binding Book.Description}"/>
+                    <TextBlock Grid.Row="9" FontSize="20" Text="Subjects" FontWeight="SemiBold"/>
+                    <TextBlock Grid.Row="10" FontSize="20" Text="{Binding Book.BookSubject.Subject}"/>
+                    
+                </Grid>
+
+                <Grid Margin="10" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"> 
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="10" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="350" />
+                        <RowDefinition Height="10" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="1*" />
+                    </Grid.RowDefinitions>
+                    
+                    <Image Grid.ColumnSpan="3" Source="/Resources/Icons/booklogo.jpg" />
+
+                    <Button Grid.Row="2" Content="&lt;"/>
+                    <Button Grid.Row="2" Grid.Column="2" Content="&gt;"/>
+                </Grid>
+                <!--<Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="8*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width=".3*" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Row="2" Grid.Column="1" 
+                      Grid.ColumnSpan="2" Grid.RowSpan="6">
+                    <Image/>
+                </Grid>
+                <Grid Grid.Row="8" Grid.Column="1" Grid.RowSpan="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Content="&lt;"/>
+                    <Button Grid.Column="1" Content="&gt;"/>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <TextBlock Text="{Binding }"/>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <TextBlock />
+                </Grid>
+                <Grid>
+                    
+                </Grid>-->
+                
+            </Grid>
         </Grid>
     </Grid>
 </Window>

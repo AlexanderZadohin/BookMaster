@@ -32,7 +32,6 @@ namespace BookMaster.View.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            SearchResultslv.ItemsSource = App.contexnt.BookAuthor.ToList();
         }
     }
 }

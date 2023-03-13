@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BookMaster.Model;
 using BookMaster.View.Pages;
 
 namespace BookMaster.View.Windows
@@ -24,7 +25,8 @@ namespace BookMaster.View.Windows
         {
             InitializeComponent();
 
-            SearchResultsFrm.Navigate(new SearchResultsPage());
+
+            SearchResultslv.ItemsSource = App.contexnt.BookAuthor.ToList();
         }
         #region Menu
         private void LoginMi_Click(object sender, RoutedEventArgs e)
@@ -65,7 +67,33 @@ namespace BookMaster.View.Windows
 
         private void SearchBtn_Click(object sender, RoutedEventArgs e)
         {
+            if(TitleSearchTb.Text != string.Empty)
+            {
+                SearchResultslv.ItemsSource = App.contexnt.BookAuthor.Where(ba => ba.Book.Title.Contains(TitleSearchTb.Text)).ToList();
+            }
+            //else if(AuthorSearchTb.Text != string.Empty)
+            //{
+            //    SearchResultslv.ItemsSource = App.contexnt.BookAuthor.Where(ba => ba.Book.BookAuthor.Contains(AuthorSearchTb.Text)).ToList();
+            //}
+            else
+            {
 
+            }
+        }
+
+        private void SearchResultslv_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            BookDetailsGrid.DataContext = SearchResultslv.SelectedItem as BookAuthor;
+
+        }
+
+        private void TitleSearchTb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (TitleSearchTb.Text == string.Empty)
+            {
+                SearchResultslv.ItemsSource = App.contexnt.BookAuthor.ToList();
+            }
         }
     }
 }
