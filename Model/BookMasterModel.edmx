@@ -57,6 +57,18 @@
           <Property Name="Coverid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CoverFile" Type="varbinary(max)" Nullable="false" />
         </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="55" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="55" Nullable="false" />
+          <Property Name="Zip" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="Subject">
           <Key>
             <PropertyRef Name="Subjectid" />
@@ -153,6 +165,7 @@
           <EntitySet Name="BookCover" EntityType="Self.BookCover" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BookSubject" EntityType="Self.BookSubject" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cover" EntityType="Self.Cover" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_BookAuthor_Author" Association="Self.FK_BookAuthor_Author">
@@ -248,6 +261,18 @@
           <Property Name="CoverFile" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
           <NavigationProperty Name="BookCover" Relationship="Self.FK_BookCover_Cover" FromRole="Cover" ToRole="BookCover" />
         </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="55" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="55" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Zip" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
         <EntityType Name="Subject">
           <Key>
             <PropertyRef Name="Subjectid" />
@@ -338,13 +363,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="BookMasterEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="BookmaterEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Author" EntityType="Self.Author" />
           <EntitySet Name="Book" EntityType="Self.Book" />
           <EntitySet Name="BookAuthor" EntityType="Self.BookAuthor" />
           <EntitySet Name="BookCover" EntityType="Self.BookCover" />
           <EntitySet Name="BookSubject" EntityType="Self.BookSubject" />
           <EntitySet Name="Cover" EntityType="Self.Cover" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" />
           <EntitySet Name="Subject" EntityType="Self.Subject" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <AssociationSet Name="FK_BookAuthor_Author" Association="Self.FK_BookAuthor_Author">
@@ -377,7 +403,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="BookMasterEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="BookmaterEntities">
           <EntitySetMapping Name="Author">
             <EntityTypeMapping TypeName="Model.Author">
               <MappingFragment StoreEntitySet="Author">
@@ -433,6 +459,19 @@
               <MappingFragment StoreEntitySet="Cover">
                 <ScalarProperty Name="Coverid" ColumnName="Coverid" />
                 <ScalarProperty Name="CoverFile" ColumnName="CoverFile" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="Model.Customers">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

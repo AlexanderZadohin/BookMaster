@@ -13,10 +13,10 @@ namespace BookMaster.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BookMasterEntities : DbContext
+    public partial class BookmaterEntities : DbContext
     {
-        public BookMasterEntities()
-            : base("name=BookMasterEntities")
+        public BookmaterEntities()
+            : base("name=BookmaterEntities")
         {
         }
     
@@ -31,6 +31,7 @@ namespace BookMaster.Model
         public DbSet<BookCover> BookCover { get; set; }
         public DbSet<BookSubject> BookSubject { get; set; }
         public DbSet<Cover> Cover { get; set; }
+        public DbSet<Customers> Customers { get; set; }
         public DbSet<Subject> Subject { get; set; }
         public DbSet<sysdiagrams> sysdiagrams { get; set; }
     }

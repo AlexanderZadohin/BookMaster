@@ -13,7 +13,6 @@
 
         <Style TargetType="TextBlock">
             <Setter Property="FontSize" Value="25" />
-            <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="FontFamily" Value="Tahoma" />
         </Style>
 
@@ -25,6 +24,14 @@
         </Style>
 
         <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="25" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="BorderBrush" Value="Black" />
+            <Setter Property="Padding" Value="10 0" />
+        </Style>
+
+
+        <Style TargetType="PasswordBox">
             <Setter Property="FontSize" Value="25" />
             <Setter Property="VerticalContentAlignment" Value="Center" />
             <Setter Property="BorderBrush" Value="Black" />
@@ -50,6 +57,9 @@
                                 <Setter Property="Background" Value="{StaticResource LightGreen2}" />
                                 <Setter Property="BorderThickness" Value="1" />
                                 <Setter Property="Cursor" Value="Hand" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Opacity" Value="0.5" />
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>

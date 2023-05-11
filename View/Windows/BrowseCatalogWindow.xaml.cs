@@ -31,12 +31,20 @@ namespace BookMaster.View.Windows
         #region Menu
         private void LoginMi_Click(object sender, RoutedEventArgs e)
         {
-
+            LoginWindow login = new LoginWindow();
+            if(login.ShowDialog() == true)
+            {
+                LoginMi.Visibility = Visibility.Collapsed;
+                LogoutMi.Visibility = Visibility.Visible;
+                LibraryMi.Visibility = Visibility.Visible;
+            }
         }
 
         private void LogoutMi_Click(object sender, RoutedEventArgs e)
         {
-
+            LoginMi.Visibility = Visibility.Visible;
+            LogoutMi.Visibility = Visibility.Collapsed;
+            LibraryMi.Visibility = Visibility.Collapsed;
         }
 
         private void CloseMi_Click(object sender, RoutedEventArgs e)
@@ -46,12 +54,14 @@ namespace BookMaster.View.Windows
 
         private void ManageCustomersMi_Click(object sender, RoutedEventArgs e)
         {
-
+            ManageCustomersWindow manageCustomers = new ManageCustomersWindow();
+            manageCustomers.ShowDialog();
         }
 
         private void CirculationMi_Click(object sender, RoutedEventArgs e)
         {
-
+            CirculationWindow circulationWindow = new CirculationWindow();
+            circulationWindow.ShowDialog();
         }
 
         private void ReportsMi_Click(object sender, RoutedEventArgs e)
@@ -75,10 +85,6 @@ namespace BookMaster.View.Windows
             //{
             //    SearchResultslv.ItemsSource = App.contexnt.BookAuthor.Where(ba => ba.Book.BookAuthor.Contains(AuthorSearchTb.Text)).ToList();
             //}
-            else
-            {
-
-            }
         }
 
         private void SearchResultslv_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -94,6 +100,12 @@ namespace BookMaster.View.Windows
             {
                 SearchResultslv.ItemsSource = App.contexnt.BookAuthor.ToList();
             }
+        }
+
+        private void AuthorsDetailsHl_Click(object sender, RoutedEventArgs e)
+        {
+            BookAuthorDetailsWindow detailsWindow = new BookAuthorDetailsWindow(SearchResultslv.SelectedItem as BookAuthor);
+            detailsWindow.ShowDialog();
         }
     }
 }

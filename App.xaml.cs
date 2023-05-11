@@ -14,6 +14,6 @@ namespace BookMaster
     /// </summary>
     public partial class App : Application
     {
-        public static BookMasterEntities contexnt = new BookMasterEntities();
+        public static BookmaterEntities contexnt = new BookmaterEntities();
     }
 }

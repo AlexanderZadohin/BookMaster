@@ -129,7 +129,7 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock Text="Page"/>
                     <Button Grid.Column="1" Content="&lt;"/>
-                    <TextBlock Grid.Column="2"/>
+                    <TextBox Grid.Column="2"/>
                     <Button Grid.Column="3" Content="&gt;"/>
                     <TextBlock Grid.Column="4"/>
                     <TextBlock Grid.Column="6"
@@ -165,16 +165,15 @@
                     <TextBlock Grid.Row="1" FontSize="23" Text="{Binding Book.Subtitle}"/>
 
                     <TextBlock Grid.Row="3">
-                        <Hyperlink>
+                        <Hyperlink Name="AuthorsDetailsHl" Click="AuthorsDetailsHl_Click">
                             <TextBlock FontSize="20" Text="{Binding Author.Name, StringFormat={}by {0}}"/>
                         </Hyperlink>
                     </TextBlock>
-                    <TextBlock Grid.Row="4" FontSize="20" Text="{Binding Book.FirstPublicdate}"/>
+                    <TextBlock Grid.Row="4" FontSize="20" Text="{Binding Book.FirstPublicDate, StringFormat={}first published: {0:dd-MM-yyyy}}"/>
                     <TextBlock Grid.Row="6" FontSize="20" Text="Description" FontWeight="SemiBold"/>
                     <TextBlock Grid.Row="7" FontSize="20" Text="{Binding Book.Description}"/>
                     <TextBlock Grid.Row="9" FontSize="20" Text="Subjects" FontWeight="SemiBold"/>
                     <TextBlock Grid.Row="10" FontSize="20" Text="{Binding Book.BookSubject.Subject}"/>
-                    
                 </Grid>
 
                 <Grid Margin="10" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"> 
@@ -195,46 +194,7 @@
                     <Button Grid.Row="2" Content="&lt;"/>
                     <Button Grid.Row="2" Grid.Column="2" Content="&gt;"/>
                 </Grid>
-                <!--<Grid.RowDefinitions>
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="8*" />
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="1*" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width=".3*" />
-                </Grid.ColumnDefinitions>
-                <Grid Grid.Row="2" Grid.Column="1" 
-                      Grid.ColumnSpan="2" Grid.RowSpan="6">
-                    <Image/>
-                </Grid>
-                <Grid Grid.Row="8" Grid.Column="1" Grid.RowSpan="2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="1*" />
-                    </Grid.ColumnDefinitions>
-                    <Button Content="&lt;"/>
-                    <Button Grid.Column="1" Content="&gt;"/>
-                </Grid>
-                <Grid Grid.Row="1">
-                    <TextBlock Text="{Binding }"/>
-                </Grid>
-                <Grid Grid.Row="2">
-                    <TextBlock />
-                </Grid>
-                <Grid>
-                    
-                </Grid>-->
-                
+               
             </Grid>
         </Grid>
     </Grid>

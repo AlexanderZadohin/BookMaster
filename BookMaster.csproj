@@ -62,8 +62,56 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Author.cs">
+      <DependentUpon>BookmasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Book.cs">
+      <DependentUpon>BookmasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BookAuthor.cs">
+      <DependentUpon>BookmasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BookCover.cs">
+      <DependentUpon>BookmasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BookmasterModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookmasterModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BookmasterModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookmasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BookmasterModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookmasterModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BookSubject.cs">
+      <DependentUpon>BookmasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Cover.cs">
+      <DependentUpon>BookmasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Customers.cs">
+      <DependentUpon>BookmasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Subject.cs">
+      <DependentUpon>BookmasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\sysdiagrams.cs">
+      <DependentUpon>BookmasterModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\SearchResultsPage.xaml.cs">
       <DependentUpon>SearchResultsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows\AddEditCustomerWindow.xaml.cs">
+      <DependentUpon>AddEditCustomerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows\BookAuthorDetailsWindow.xaml.cs">
+      <DependentUpon>BookAuthorDetailsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Windows\BrowseCatalogWindow.xaml.cs">
       <DependentUpon>BrowseCatalogWindow.xaml</DependentUpon>
@@ -72,7 +120,24 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="View\Windows\CirculationWindow.xaml.cs">
+      <DependentUpon>CirculationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows\LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows\ManageCustomersWindow.xaml.cs">
+      <DependentUpon>ManageCustomersWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="View\Pages\SearchResultsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Windows\AddEditCustomerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Windows\BookAuthorDetailsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -80,47 +145,20 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Windows\CirculationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Windows\LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Windows\ManageCustomersWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Author.cs">
-      <DependentUpon>BookMasterModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Book.cs">
-      <DependentUpon>BookMasterModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\BookAuthor.cs">
-      <DependentUpon>BookMasterModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\BookCover.cs">
-      <DependentUpon>BookMasterModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\BookMasterModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BookMasterModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\BookMasterModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BookMasterModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\BookMasterModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BookMasterModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Model\BookSubject.cs">
-      <DependentUpon>BookMasterModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Cover.cs">
-      <DependentUpon>BookMasterModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Subject.cs">
-      <DependentUpon>BookMasterModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\sysdiagrams.cs">
-      <DependentUpon>BookMasterModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -138,12 +176,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Model\BookMasterModel.edmx">
+    <EntityDeploy Include="Model\BookmasterModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BookMasterModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>BookmasterModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\BookMasterModel.edmx.diagram">
-      <DependentUpon>BookMasterModel.edmx</DependentUpon>
+    <None Include="Model\BookmasterModel.edmx.diagram">
+      <DependentUpon>BookmasterModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -159,21 +197,23 @@
     <Folder Include="Resources\Fonts\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model\BookMasterModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>BookMasterModel.Context.cs</LastGenOutput>
-      <DependentUpon>BookMasterModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="Model\BookMasterModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BookMasterModel.edmx</DependentUpon>
-      <LastGenOutput>BookMasterModel.cs</LastGenOutput>
-    </Content>
     <Resource Include="Resources\Icons\booklogo.jpg" />
     <Resource Include="Resources\Icons\logo.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\BookmasterModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BookmasterModel.edmx</DependentUpon>
+      <LastGenOutput>BookmasterModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\BookmasterModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BookmasterModel.edmx</DependentUpon>
+      <LastGenOutput>BookmasterModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
